@@ -1,0 +1,27 @@
+{
+  "name": "coordinate-format-converter",
+  "version": "1.0.0",
+  "description": "Geographic latitude longitude coordinate format converter",
+  "main": "coordinate-converter.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javidalpe/coordinate-format-converter.git"
+  },
+  "keywords": [
+    "geographic-converter",
+    "coordinate-converter",
+    "coordinate-format"
+  ],
+  "author": "Javier Vidal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/javidalpe/coordinate-format-converter/issues"
+  },
+  "homepage": "https://github.com/javidalpe/coordinate-format-converter#readme",
+  "devDependencies": {
+    "jest": "^23.5.0"
+  }
+}
