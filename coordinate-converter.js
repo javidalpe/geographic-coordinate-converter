@@ -1,15 +1,31 @@
+import {
+	decimalPositionToDegreeMinutesSecondsString,
+	decimalPositionToDegreeString,
+	degreeLatToDecimal,
+	degreeLngToDecimal,
+	degreeMinutesSecondsLatToDecimal,
+	degreeMinutesSecondsLngToDecimal
+} from "./utils";
+
 class GeographicCoordinateConverterBuilder {
 
 	fromDecimal(coordinate) {
-		return new GeographicCoordinateConverter(coordinate);
+		const latlng = coordinate.split(" ");
+		return new GeographicCoordinateConverter(Number.parseFloat(latlng[0]), Number.parseFloat(latlng[1]));
 	}
 
 	fromDegreeMinutes(coordinate) {
-		return new GeographicCoordinateConverter(coordinate);
+		const slicePoint = Math.max(coordinate.indexOf('s'), coordinate.indexOf('S'), coordinate.indexOf('n'), coordinate.indexOf('N'));
+		let latDecimal = coordinate.slice(0, slicePoint + 1);
+		let lngDecimal = coordinate.slice(slicePoint + 3);
+		return new GeographicCoordinateConverter(degreeLatToDecimal(latDecimal), degreeLngToDecimal(lngDecimal));
 	}
 
 	fromDegreeMinutesSeconds(coordinate) {
-		return new GeographicCoordinateConverter(coordinate);
+		const slicePoint = Math.max(coordinate.indexOf('s'), coordinate.indexOf('S'), coordinate.indexOf('n'), coordinate.indexOf('N'));
+		let latDecimal = coordinate.slice(0, slicePoint + 1);
+		let lngDecimal = coordinate.slice(slicePoint + 3);
+		return new GeographicCoordinateConverter(degreeMinutesSecondsLatToDecimal(latDecimal), degreeMinutesSecondsLngToDecimal(lngDecimal));
 	}
 }
 
@@ -26,10 +42,10 @@ export class GeographicCoordinateConverter {
 	}
 
 	toDegreeMinutes() {
-		return 2;
+		return decimalPositionToDegreeString(this.lat, this.lng);
 	}
 
 	toDegreeMinutesSeconds() {
-		return 2;
+		return decimalPositionToDegreeMinutesSecondsString(this.lat, this.lng);
 	}
 }
