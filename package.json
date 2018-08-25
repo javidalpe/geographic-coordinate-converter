@@ -1,5 +1,5 @@
 {
-  "name": "coordinate-format-converter",
+  "name": "geographic-coordinate-converter",
   "version": "1.0.0",
   "description": "Geographic latitude longitude coordinate format converter",
   "main": "coordinate-converter.js",
