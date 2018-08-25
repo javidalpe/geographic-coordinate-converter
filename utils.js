@@ -71,7 +71,7 @@ let decimalPartFromDegreesMinutes = function (degree) {
 	let deg = degree.substring(0, i);
 	let fdeg = parseFloat(deg);
 	let i2 = degree.indexOf('\'');
-	let dec = degree.substring(i + 2, i2);
+	let dec = degree.substring(i + 1, i2);
 	let fdec = parseFloat(dec) / 60;
 	let decimal = fdeg + fdec;
 	return {i2, decimal};
@@ -80,7 +80,7 @@ let decimalPartFromDegreesMinutes = function (degree) {
 export function degreeLatToDecimal(degree) {
 	let {i2, decimal} = decimalPartFromDegreesMinutes(degree);
 
-	let s = degree.substring(i2 + 2, i2 + 3);
+	let s = degree.substring(i2 + 1, i2 + 2);
 	if (s === 'S' || s === 's')
 		decimal = decimal * (-1);
 
@@ -90,7 +90,7 @@ export function degreeLatToDecimal(degree) {
 export function degreeLngToDecimal(degree) {
 	let {i2, decimal} = decimalPartFromDegreesMinutes(degree);
 
-	let s = degree.substring(i2 + 2, i2 + 3);
+	let s = degree.substring(i2 + 1, i2 + 2);
 	if (s === 'W' || s === 'w')
 		decimal = decimal * (-1);
 
@@ -103,11 +103,11 @@ let decimalPartFromDegreesMinutesSeconds = function (degree) {
 	let fdeg = parseFloat(deg);
 
 	let i2 = degree.indexOf('\'');
-	let mins = degree.substring(i + 2, i2);
+	let mins = degree.substring(i + 1, i2);
 	let fmins = parseFloat(mins) / 60;
 
 	let i3 = degree.indexOf('\'\'');
-	let secs = degree.substring(i2 + 2, i3);
+	let secs = degree.substring(i2 + 1, i3);
 	let fsecs = parseFloat(secs) / 3600;
 
 	let decimal = fdeg + fmins + fsecs;
@@ -121,8 +121,7 @@ let roundTo = function (number, decimalsPositions) {
 
 export function degreeMinutesSecondsLatToDecimal(degree) {
 	let {i3, decimal} = decimalPartFromDegreesMinutesSeconds(degree);
-
-	let s = degree.substring(i3 + 3);
+	let s = degree.substring(i3 + 2);
 	if (s === 'S' || s === 's')
 		decimal = decimal * (-1);
 
@@ -132,7 +131,7 @@ export function degreeMinutesSecondsLatToDecimal(degree) {
 export function degreeMinutesSecondsLngToDecimal(degree) {
 	let {i3, decimal} = decimalPartFromDegreesMinutesSeconds(degree);
 
-	let s = degree.substring(i3 + 3);
+	let s = degree.substring(i3 + 2);
 
 	if (s === 'W' || s === 'w')
 		decimal = decimal * (-1);
