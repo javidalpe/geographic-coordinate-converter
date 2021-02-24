@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/javidalpe/coordinate-format-converter#readme",
   "devDependencies": {
-    "jest": "^23.5.0"
+    "jest": "^23.5.0",
+    "jets": "^0.14.1"
   },
   "dependencies": {
     "babel-core": "^6.26.3",

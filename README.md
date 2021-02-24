@@ -29,7 +29,9 @@ Convert to the desired format:
 .toDecimalArray();
 .toDecimal();
 .toDegreeMinutes()
+.toDegreeMinutesArray()
 .toDegreeMinutesSeconds()	
+.toDegreeMinutesSecondsArray()	
 ```
 
 ## Examples
@@ -37,6 +39,8 @@ Convert to the desired format:
 ```javascript
 CoordinateConverter.fromDecimal([-36.01011, -2.34856])
 	.toDegreeMinutes() //"36º 00.607' S 002º 20.914' W"
+CoordinateConverter.fromDecimal([-36.01011, -2.34856])
+    .toDegreeMinutesArray() //["36º 00.607' S", "002º 20.914' W"]
 CoordinateConverter.fromDegreeMinutes("36º 00.607' S 002º 20.914' W")
 	.toDegreeMinutesSeconds() //"36º 00' 36.4'' S 002º 20' 54.8'' W"
 CoordinateConverter.fromDegreeMinutesSeconds("36º 00' 36.4'' S 002º 20' 54.8'' W")
