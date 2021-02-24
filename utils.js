@@ -140,9 +140,8 @@ export function degreeMinutesSecondsLngToDecimal(degree) {
 }
 
 export function decimalPositionToDegreeString(lat, lng) {
-    let flat = decimalLatToDegree(lat);
-    let glng = decimalLngToDegree(lng);
-    return flat + " " + glng;
+    const coords = decimalPositionToDegreeArray(lat, lng);
+    return coords[0] + " " + coords[1];
 }
 
 export function decimalPositionToDegreeArray(lat, lng) {
@@ -152,9 +151,8 @@ export function decimalPositionToDegreeArray(lat, lng) {
 }
 
 export function decimalPositionToDegreeMinutesSecondsString(lat, lng) {
-    let flat = decimalLatToDegreeMinutesSeconds(lat);
-    let glng = decimalLngToDegreeMinutesSeconds(lng);
-    return flat + " " + glng;
+    const coords = decimalPositionToDegreeMinutesSecondsArray(lat, lng);
+    return coords[0] + " " + coords[1];
 }
 
 export function decimalPositionToDegreeMinutesSecondsArray(lat, lng) {
